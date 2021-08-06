@@ -1,10 +1,28 @@
 <template>
   <div id="app">
+    <vue-header></vue-header>
     <router-view/>
   </div>
 </template>
+<script>
+import vueHeader from './views/header/index.vue'
+export default {
+  components: {
+    vueHeader
+  },
+  data () {
+    return {
+
+    }
+  }
+}
+</script>
 
 <style lang="less">
+body{
+  padding: 0;
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
