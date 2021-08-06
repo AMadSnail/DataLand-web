@@ -15,13 +15,21 @@ const routes = [
     name: 'Home',
     component: Home,
     children: [
-      {
-        // 当 /user/:id/profile 匹配成功，
-        // UserProfile 会被渲染在 User 的 <router-view> 中
-        path: '/soother',
-        component: () => import(/* webpackChunkName: "about" */ '../views/soulSoother/index.vue')
-      }
+      // {
+      //   path: '/soother',
+      //   component: () => import(/* webpackChunkName: "about" */ '../views/soulSoother/index.vue')
+      // }
     ]
+  },
+  {
+    path: '/soother',
+    name: 'Soother',
+    component: () => import('../views/soulSoother/index.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/login/index.vue')
   }
 ]
 

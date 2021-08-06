@@ -5,3 +5,51 @@
         增量升级：在面对各种复杂场景时，我们通常很难对一个已经存在的系统做全量的技术栈升级或重构，
         而微前端是一种非常好的实施渐进式重构的手段和策略
         独立运行时：每个微应用之间状态隔离，运行时状态不共享
+
+
+
+
+
+1、__proto__ 是原型链查询中实际用到的，它总是指向 prototype；
+
+2、prototype 是函数所独有的，在定义构造函数时自动创建，它总是被 __proto__ 所指。
+
+所有对象都有__proto__属性，函数这个特殊对象除了具有__proto__属性，还有特有的原型属性prototype。prototype对象默认有两个属性，constructor属性和__proto__属性。prototype属性可以给函数和对象添加可共享（继承）的方法、属性，而__proto__是查找某函数或对象的原型链方式。constructor，这个属性包含了一个指针，指回原构造函数。
+
+Function.prototype.call = function (context, ...args) {
+  context = context || window;
+  
+  const fnSymbol = Symbol("fn");
+  context[fnSymbol] = this;
+  
+  context[fnSymbol](...args);
+  delete context[fnSymbol];
+}
+
+Function.prototype.apply = function (context, argsArr) {
+  context = context || window;
+  
+  const fnSymbol = Symbol("fn");
+  context[fnSymbol] = this;
+  
+  context[fnSymbol](...argsArr);
+  delete context[fnSymbol];
+}
+
+
+Function.prototype.bind = function (context, ...args) {
+  context = context || window;
+  const fnSymbol = Symbol("fn");
+  context[fnSymbol] = this;
+  
+  return function (..._args) {
+    args = args.concat(_args);
+    
+    context[fnSymbol](...args);
+    delete context[fnSymbol];   
+  }
+}
+
+箭头函数与普通函数的区别在于： 
+1、箭头函数没有 this，所以需要通过查找作用域链来确定 this 的值，这就意味着如果箭 头函数被非箭头函数包含，this 绑定的就是最近一层非箭头函数的 this， 
+2、箭头函数没有自己的 arguments 对象，但是可以访问外围函数的 arguments 对象 3、不能通过 new 关键字调用，同样也没有 new.target 值和原型

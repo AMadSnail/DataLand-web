@@ -1,8 +1,7 @@
 <template>
   <div class="app-main">
-    <vue-header></vue-header>
     <div class="data-main">
-      <el-carousel height="150px">
+      <el-carousel height="500px">
         <el-carousel-item v-for="item in urls" :key="item">
           <!-- <h3 class="small">{{ item }}</h3> -->
           <img :src="item" alt="">
@@ -12,12 +11,8 @@
   </div>
 </template>
 <script>
-import vueHeader from '../header/index.vue'
 
 export default {
-  components: {
-    vueHeader
-  },
   data () {
     return {
       urls: [

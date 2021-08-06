@@ -47,8 +47,20 @@ export default {
         //   break;
       }
     },
-    handleClickUser () {
+    handleClickUser (data) {
       console.log('user')
+      switch (data) {
+        case 'register':
+          this.$router.push({ path: '/register' })
+          break
+        // case 'blog':
+        //   break
+        case 'login':
+          this.$router.push({ path: '/login' })
+          break
+        // case 'mycktry':
+        //   break;
+      }
     }
   }
 }
