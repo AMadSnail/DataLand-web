@@ -38,13 +38,15 @@ export default {
         case 'home':
           this.$router.push({ path: '/home' })
           break
-        // case 'blog':
-        //   break
+        case 'blog':
+          this.$router.push({ path: '/blcg' })
+          break
         case 'soother':
           this.$router.push({ path: '/soother' })
           break
-        // case 'mycktry':
-        //   break;
+        case 'mycktry':
+          this.$router.push({ path: '/myCode' })
+          break
       }
     },
     handleClickUser (data) {

@@ -27,6 +27,16 @@ const routes = [
     component: () => import('../views/soulSoother/index.vue')
   },
   {
+    path: '/blcg',
+    name: 'Blcg',
+    component: () => import('../views/blcg/index.vue')
+  },
+  {
+    path: '/mycode',
+    name: 'MyCode',
+    component: () => import('../views/myCode/index.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('../views/login/index.vue')
